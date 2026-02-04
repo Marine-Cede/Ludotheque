@@ -2,6 +2,7 @@ package fr.eni.ludotheque.dal;
 
 import ch.qos.logback.core.net.server.Client;
 import fr.eni.ludotheque.Repository.ClientRepository;
+import fr.eni.ludotheque.bo.AdresseBo;
 import fr.eni.ludotheque.bo.ClientBo;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -22,7 +23,8 @@ public class ClientRepositoryTest {
     @DisplayName("Trouver un client en connaissant son id")
     public void testFindByIdClient() {
         //Arrange
-        ClientBo client1 = new ClientBo("Duck", "Donald", "d.duck@mail.com","0615817840");
+        AdresseBo adresse1 = new AdresseBo(2, "Rue du lac", "79260", "La crèche");
+        ClientBo client1 = new ClientBo("Duck", "Donald", "d.duck@mail.com","0615817840", adresse1);
         clientRepo.save(client1);
 
 
@@ -43,7 +45,8 @@ public class ClientRepositoryTest {
     @Transactional
     public void testModificationEmploye() {
         //Arrange
-        ClientBo client = new ClientBo("nomTest", "prenomTest", "email@Test.com", "0777361821");
+        AdresseBo adresse = new AdresseBo(404, "Avenue du test", "79260", "Test");
+        ClientBo client = new ClientBo("nomTest", "prenomTest", "email@Test.com", "0777361821", adresse);
 
         //Act
         clientRepo.save(client);

@@ -21,7 +21,7 @@ public class AdresseBo {
     private String rue;
     @Column
     @NonNull
-    private Integer codePostal;
+    private String codePostal;
     @Column
     @NonNull
     private String ville;
