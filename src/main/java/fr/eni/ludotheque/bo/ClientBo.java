@@ -1,9 +1,6 @@
 package fr.eni.ludotheque.bo;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
@@ -13,6 +10,7 @@ import lombok.RequiredArgsConstructor;
 @NoArgsConstructor
 @RequiredArgsConstructor
 @Entity
+@Table(name = "Client")
 public class ClientBo {
     @Id
     @GeneratedValue
@@ -29,5 +27,9 @@ public class ClientBo {
     @Column
     @NonNull
     private String noTel;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "AdresseBo", referencedColumnName = "noAdresse")
+    @NonNull private AdresseBo adresse;
 
 }

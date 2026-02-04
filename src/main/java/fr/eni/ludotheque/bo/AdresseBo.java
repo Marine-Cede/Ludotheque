@@ -2,21 +2,27 @@ package fr.eni.ludotheque.bo;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.annotation.Id;
 
 @Data
 @NoArgsConstructor
 @RequiredArgsConstructor
+@Entity
 public class AdresseBo {
+    @Id
+    @NonNull
+    private Integer noAdresse;
     @Column
-    int noAdresse;
+    @NonNull
+    private String rue;
     @Column
-    String rue;
+    @NonNull
+    private Integer codePostal;
     @Column
-    int codePostal;
-    @Column
-    String ville;
+    @NonNull
+    private String ville;
 }
