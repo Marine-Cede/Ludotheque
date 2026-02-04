@@ -2,6 +2,7 @@ package fr.eni.ludotheque.dal;
 
 import ch.qos.logback.core.net.server.Client;
 import fr.eni.ludotheque.Repository.ClientRepository;
+import fr.eni.ludotheque.bo.ClientBo;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,18 +22,9 @@ public class ClientRepositoryTest {
     @DisplayName("Trouver un client en connaissant son id")
     public void testFindByIdClient() {
         //Arrange
-        Client client1 = new Client("Duck", "Donald", "d.duck@mail.com","0615817840") {
-            @Override
-            public void run() {
-
-            }
-
-            @Override
-            public void close() {
-
-            }
-        };
+        ClientBo client1 = new ClientBo("Duck", "Donald", "d.duck@mail.com","0615817840");
         clientRepo.save(client1);
+
 
         //Act
         //Optional<Client> clientOpt = clientRepo.findById(client1.getId());
@@ -51,17 +43,7 @@ public class ClientRepositoryTest {
     @Transactional
     public void testModificationEmploye() {
         //Arrange
-        Client client = new Client("002", "nomTest", "prenomTest", "email@Test.com", "0777361821") {
-            @Override
-            public void run() {
-
-            }
-
-            @Override
-            public void close() {
-
-            }
-        };
+        ClientBo client = new ClientBo("nomTest", "prenomTest", "email@Test.com", "0777361821");
 
         //Act
         clientRepo.save(client);
