@@ -14,8 +14,7 @@ import lombok.RequiredArgsConstructor;
 public class ExemplaireBo {
     @Id
     @GeneratedValue
-    @NonNull
-    private int noExemplaire;
+    private Integer noExemplaire;
 
     @Column
     @NonNull
@@ -23,5 +22,5 @@ public class ExemplaireBo {
 
     @Column
     @NonNull
-    private boolean louable;
+    private Boolean louable;
 }
