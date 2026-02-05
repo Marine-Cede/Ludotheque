@@ -6,21 +6,22 @@ import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @Data
 @Entity
 @NoArgsConstructor
 @RequiredArgsConstructor
-@Table(name = "GENRES")
-public class GenreBo {
+@Table(name = "EXEMPLAIRES")
+public class ExemplaireBo {
     @Id
-    @Column(name = "no_genre")
+    @GeneratedValue
     @NonNull
-    private int noGenre;
+    private int noExemplaire;
 
-    @Column(name = "libelle")
+    @Column
     @NonNull
-    private String libelle;
+    private int codeBarre;
+
+    @Column
+    @NonNull
+    private boolean louable;
 }

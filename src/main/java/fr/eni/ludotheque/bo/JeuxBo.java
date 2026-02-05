@@ -6,6 +6,9 @@ import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Data
 @Entity
 @NoArgsConstructor
@@ -17,24 +20,34 @@ public class JeuxBo {
     @NonNull
     private int noJeu;
 
-    @Column
+    @Column(name = "titre")
     @NonNull
     private String titre;
 
-    @Column
+    @Column(name = "reference")
     @NonNull
     private String reference;
 
-    @Column
+    @Column(name = "age_min")
     private int ageMin;
 
-    @Column
+    @Column(name = "description")
     private String description;
 
-    @Column
+    @Column(name = "duree")
     private int duree;
 
-    @Column
+    @Column(name = "tarif_jour")
     @NonNull
     private int tarifJour;
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "JEUX_GENRES",
+            joinColumns = @JoinColumn(name="no_jeu"),
+            inverseJoinColumns = @JoinColumn(name="no_genre"))
+    private List<GenreBo> genres = new ArrayList<>();
+
+    public void addGenre(GenreBo g) {
+        genres.add(g);
+    }
 }
