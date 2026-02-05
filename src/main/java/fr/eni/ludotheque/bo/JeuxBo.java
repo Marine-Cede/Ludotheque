@@ -17,8 +17,7 @@ import java.util.List;
 public class JeuxBo {
     @Id
     @GeneratedValue
-    @NonNull
-    private int noJeu;
+    private Integer noJeu;
 
     @Column(name = "titre")
     @NonNull
@@ -39,7 +38,7 @@ public class JeuxBo {
 
     @Column(name = "tarif_jour")
     @NonNull
-    private int tarifJour;
+    private Double tarifJour;
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "JEUX_GENRES",

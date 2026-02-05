@@ -19,7 +19,7 @@ public class ExemplaireBo {
 
     @Column
     @NonNull
-    private int codeBarre;
+    private String codeBarre;
 
     @Column
     @NonNull
