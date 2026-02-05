@@ -1,10 +1,7 @@
 package fr.eni.ludotheque.bo;
 
 import jakarta.persistence.*;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
+import lombok.*;
 
 @Data
 @NoArgsConstructor
@@ -14,6 +11,7 @@ import lombok.RequiredArgsConstructor;
 public class ClientBo {
     @Id
     @GeneratedValue
+    @EqualsAndHashCode.Exclude
     private int noClient;
     @Column
     @NonNull
