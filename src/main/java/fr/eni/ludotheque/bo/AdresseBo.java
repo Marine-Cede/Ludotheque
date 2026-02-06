@@ -2,11 +2,9 @@ package fr.eni.ludotheque.bo;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
+import lombok.*;
 
 @Data
 @NoArgsConstructor
@@ -14,7 +12,8 @@ import lombok.RequiredArgsConstructor;
 @Entity
 public class AdresseBo {
     @Id
-    @NonNull
+    @GeneratedValue
+    @EqualsAndHashCode.Exclude
     private Integer noAdresse;
     @Column
     @NonNull

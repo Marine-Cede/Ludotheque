@@ -6,6 +6,7 @@ import lombok.Data;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
 @Data
 @Service
 public class ClientServiceImpl implements ClientService{
@@ -20,5 +21,10 @@ public class ClientServiceImpl implements ClientService{
     public void ajouterClient(ClientBo client) {
         clientRepository.save(client);
     }
-}
+
+    @Override
+    public List<ClientBo> trouverClientsParNom(String nom) {
+        return clientRepository.findByNomStartsWith(nom);
+    }
+    }
 

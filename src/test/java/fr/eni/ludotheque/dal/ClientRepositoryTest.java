@@ -22,7 +22,7 @@ public class ClientRepositoryTest {
     @Test
     @DisplayName("Trouver un client en connaissant son id")
     public void testFindByIdClient() {
-        AdresseBo adresse1 = new AdresseBo(2, "Rue du lac", "79260", "La crèche");
+        AdresseBo adresse1 = new AdresseBo("Rue du lac", "79260", "La crèche");
         ClientBo client1 = new ClientBo("Duck", "Donald", "d.duck@mail.com","0615817840", adresse1);
         clientRepo.save(client1);
     }
@@ -32,7 +32,7 @@ public class ClientRepositoryTest {
     @Transactional
     public void testModificationEmploye() {
 
-        AdresseBo adresse = new AdresseBo(404, "Avenue du test", "79260", "Test");
+        AdresseBo adresse = new AdresseBo("Avenue du test", "79260", "Test");
         ClientBo client = new ClientBo("nomTest", "prenomTest", "email@Test.com", "0777361821", adresse);
 
 

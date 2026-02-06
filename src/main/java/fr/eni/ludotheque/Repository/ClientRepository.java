@@ -7,7 +7,6 @@ import java.util.List;
 
 public interface ClientRepository extends JpaRepository<ClientBo, Integer>{
 
-    List<ClientBo> findClientBoByNomStartingWith(String nom);
-
-    String nom(String nom);
+    List<ClientBo> findByNomStartsWith(String nom);
+    ClientBo findByNoTelephone(String telephone);
 }
