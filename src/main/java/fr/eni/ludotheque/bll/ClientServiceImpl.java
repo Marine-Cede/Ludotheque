@@ -11,6 +11,7 @@ import org.springframework.dao.OptimisticLockingFailureException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Data
@@ -57,6 +58,14 @@ public class ClientServiceImpl implements ClientService{
     @Override
     public List<ClientBo> getAllClients() {
         return client.stream().collect(Collectors.toList());
+    }
+
+    @Override
+    public Optional<ClientBo> getClientById(Integer id) {
+        Optional<ClientBo> foundClient = client.stream()
+                .filter(clientBo -> clientBo.getId().equals(id))
+                .findFirst();
+        return foundClient;
     }
 
 }

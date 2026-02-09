@@ -23,7 +23,7 @@ public class JeuxServiceImpl {
     @NonNull
     private ExemplaireRepository exemplaireRepository;
 
-    @Override
+    //@Override
     public void ajouterJeu(JeuxBo jeu) {
 
         jeuRepository.save(jeu);
@@ -32,7 +32,7 @@ public class JeuxServiceImpl {
     }
 
 
-    @Override
+    //@Override
     public JeuxBo trouverJeuParNoJeu(Integer noJeu) {
         Optional<JeuxBo> optJeu = jeuRepository.findById(noJeu);
 
