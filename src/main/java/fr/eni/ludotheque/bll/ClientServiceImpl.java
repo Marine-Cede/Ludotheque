@@ -57,23 +57,17 @@ public class ClientServiceImpl implements ClientService{
 
     @Override
     public List<ClientBo> getAllClients() {
-        return client.stream().collect(Collectors.toList());
+        return clientRepository.findAll();
     }
 
     @Override
     public Optional<ClientBo> getClientById(Integer id) {
-        Optional<ClientBo> foundClient = client.stream()
-                .filter(clientBo -> clientBo.getId().equals(id))
-                .findFirst();
-        return foundClient;
+      return clientRepository.findById(id);
     }
 
     @Override
     public void deleteClient(Integer id) {
-        Optional<ClientBo> foundClient = client.stream()
-                .filter(clientBo -> clientBo.getId().equals(id))
-                .findFirst();
-        client.remove(foundClient.get());
+        clientRepository.deleteById(id);
     }
 
 }

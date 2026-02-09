@@ -12,7 +12,7 @@ public class ClientBo {
     @Id
     @GeneratedValue
     @EqualsAndHashCode.Exclude
-    private int noClient;
+    private Integer noClient;
     @Column
     @NonNull
     private String nom;
@@ -30,15 +30,4 @@ public class ClientBo {
     @JoinColumn(name = "AdresseBo", referencedColumnName = "noAdresse")
     @NonNull private AdresseBo adresse;
 
-    public ClientBo(Integer id) {
-        this.noClient = id;
-        this.nom = nom;
-        this.prenom = prenom;
-        this.email = email;
-        this.noTel = noTel;
-    }
-
-    public Object getId() {
-        return getId();
-    }
 }
