@@ -12,4 +12,5 @@ public interface ClientService {
     public List<ClientBo> trouverClientsParNom(String nom);
     List<ClientBo> getAllClients();
     Optional<ClientBo> getClientById(Integer id);
+    void deleteClient (Integer id);
 }

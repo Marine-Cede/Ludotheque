@@ -68,5 +68,13 @@ public class ClientServiceImpl implements ClientService{
         return foundClient;
     }
 
+    @Override
+    public void deleteClient(Integer id) {
+        Optional<ClientBo> foundClient = client.stream()
+                .filter(clientBo -> clientBo.getId().equals(id))
+                .findFirst();
+        client.remove(foundClient.get());
+    }
+
 }
 

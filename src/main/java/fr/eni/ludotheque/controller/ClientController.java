@@ -4,7 +4,6 @@ import fr.eni.ludotheque.bll.ClientServiceImpl;
 import fr.eni.ludotheque.bo.ClientBo;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -30,11 +29,16 @@ public class ClientController {
     public ResponseEntity<ClientBo> getClientById(@PathVariable Integer id) {
         Optional<ClientBo> clientOpt = clientService.getClientById(id);
         if (clientOpt.isEmpty()) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+            return org.springframework.http.ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
         }
 
-        return ResponseEntity.ok(clientOpt.get());
+        return org.springframework.http.ResponseEntity.ok(clientOpt.get());
 
     }
-}
+
+    @DeleteMapping("/{id}")
+    public void deleteClient(@PathVariable Integer id) {
+
+        }
+    }
 
