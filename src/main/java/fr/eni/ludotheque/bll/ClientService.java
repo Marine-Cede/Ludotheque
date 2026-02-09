@@ -9,5 +9,5 @@ public interface ClientService {
 
     void ajouterClient(ClientBo client);
     public List<ClientBo> trouverClientsParNom(String nom);
-    List<ClientBo> getAllTodos();
+    List<ClientBo> getAllClients();
 }

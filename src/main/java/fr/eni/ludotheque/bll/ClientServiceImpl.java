@@ -55,7 +55,7 @@ public class ClientServiceImpl implements ClientService{
     }
 
     @Override
-    public List<ClientBo> getAllTodos() {
+    public List<ClientBo> getAllClients() {
         return client.stream().collect(Collectors.toList());
     }
 
